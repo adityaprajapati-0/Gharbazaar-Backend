@@ -45,9 +45,10 @@ const config: Config = {
         clientId: process.env.GOOGLE_CLIENT_ID || '',
         clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
     },
-    allowedOrigins: (process.env.FRONTEND_URL || 'http://localhost:3000')
-        .split(',')
-        .map(url => url.trim()),
+    allowedOrigins: (() => {
+        const urls = (process.env.FRONTEND_URL || 'http://localhost:3000').split(',');
+        return urls.map(url => url.trim().replace(/\/$/, ''));
+    })(),
     socket: {
         pingTimeout: parseInt(process.env.SOCKET_PING_TIMEOUT || '60000', 10),
         pingInterval: parseInt(process.env.SOCKET_PING_INTERVAL || '25000', 10),

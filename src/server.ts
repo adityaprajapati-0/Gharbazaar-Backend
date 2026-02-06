@@ -28,6 +28,7 @@ const startServer = async () => {
             origin: config.allowedOrigins,
             credentials: true,
         }));
+        console.log(`🔒 CORS allowed origins: ${config.allowedOrigins.join(', ')}`);
 
         app.use(express.json());
         app.use(express.urlencoded({ extended: true }));
