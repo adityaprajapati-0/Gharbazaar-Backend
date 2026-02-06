@@ -1,0 +1,4 @@
+🔄 Connecting to MongoDB...
+❌ Test failed: MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+
+👋 Disconnected from MongoDB
